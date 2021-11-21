@@ -37,6 +37,10 @@ export const editor: Module<EditorState, GlobalProp> = {
     addComponent(state, props) {
       state.components.push(props);
     },
+    setActive(state, id) {
+      console.log(">>>", id);
+      state.currentElement = id;
+    },
   },
   actions: {
     getInfo({ state, commit, rootState }) {
@@ -59,5 +63,12 @@ export const editor: Module<EditorState, GlobalProp> = {
   },
   getters: {
     // getInfo(state, getters, rootState) {},
+    getCurrentElement: (state) => {
+      const val: any = state.components.find(
+        (item) => item.id === state.currentElement
+      );
+      console.log(">>>>", val);
+      return val;
+    },
   },
 };
