@@ -5,10 +5,13 @@
         <a-layout-sider>Sider</a-layout-sider>
         <a-layout-content>
           <div>画布区域</div>
-          <div class="list" v-for="item in components" :key="item.id">
-            {{ item.props.text }}
-          </div></a-layout-content
-        >
+          <component
+            v-for="component in components"
+            :key="component.id"
+            :is="component.name"
+            v-bind="component.props"
+          ></component>
+        </a-layout-content>
         <a-layout-sider>Sider</a-layout-sider>
       </a-layout>
     </a-layout>
@@ -20,12 +23,14 @@ import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { defineComponent, computed, ref, reactive, PropType } from "vue";
 
+import LText from "@/components/LText.vue";
+
 import { useInfoEffect } from "./hooks/useInfoEffect";
 import { GlobalProp } from "@/store";
 
 export default defineComponent({
   name: "Editor",
-  components: {},
+  components: { LText },
   setup() {
     // // 初始化数据
     // const zero = ref(0);

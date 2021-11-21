@@ -15,8 +15,8 @@ export interface EditorState {
 
 // test
 export const testComponents: ComponentData[] = [
-  { id: uuidv4(), name: "l-text", props: { text: "hello" } },
-  { id: uuidv4(), name: "l-text", props: { text: "hello2" } },
+  { id: uuidv4(), name: "l-text", props: { text: "hello", fontSize: "20px" } },
+  { id: uuidv4(), name: "l-text", props: { text: "hello2", fontSize: "10px" } },
 ];
 // test
 
