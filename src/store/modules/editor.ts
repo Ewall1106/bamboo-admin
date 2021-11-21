@@ -34,6 +34,9 @@ export const editor: Module<EditorState, GlobalProp> = {
     SET_TOKEN: (state, token) => {
       // state.token = token;
     },
+    addComponent(state, props) {
+      state.components.push(props);
+    },
   },
   actions: {
     getInfo({ state, commit, rootState }) {

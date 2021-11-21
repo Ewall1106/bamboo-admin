@@ -2,7 +2,9 @@
   <div class="Editor">
     <a-layout>
       <a-layout>
-        <a-layout-sider>Sider</a-layout-sider>
+        <a-layout-sider style="background: #fff">
+          <ComponentsList :list="defaultTextTemplates" @onItemClick="addItem" />
+        </a-layout-sider>
         <a-layout-content>
           <div>画布区域</div>
           <component
@@ -24,13 +26,15 @@ import { useRouter } from "vue-router";
 import { defineComponent, computed, ref, reactive, PropType } from "vue";
 
 import LText from "@/components/LText.vue";
+import ComponentsList from "@/components/ComponentsList.vue";
 
 import { useInfoEffect } from "./hooks/useInfoEffect";
+import defaultTextTemplates from "@/defaultTemplates";
 import { GlobalProp } from "@/store";
 
 export default defineComponent({
   name: "Editor",
-  components: { LText },
+  components: { LText, ComponentsList },
   setup() {
     // // 初始化数据
     // const zero = ref(0);
@@ -55,8 +59,14 @@ export default defineComponent({
     const store = useStore<GlobalProp>();
     const components = computed(() => store.state.editor.components);
 
+    const addItem = (component: any) => {
+      store.commit("editor/addComponent", component);
+    };
+
     return {
+      addItem,
       components,
+      defaultTextTemplates,
     };
   },
 });
