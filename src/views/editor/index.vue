@@ -25,6 +25,12 @@
           <pre>
             {{ currentElement && currentElement.props }}
           </pre>
+
+          <props-table
+            v-if="currentElement && currentElement.props"
+            :props="currentElement.props"
+            @change="pageChange"
+          ></props-table>
         </a-layout-sider>
       </a-layout>
     </a-layout>
@@ -39,6 +45,7 @@ import { defineComponent, computed, ref, reactive, PropType } from "vue";
 import LText from "@/components/LText.vue";
 import ComponentsList from "@/components/ComponentsList.vue";
 import EditWrapper from "@/components/EditWrapper.vue";
+import PropsTable from "@/components/PropsTable.vue";
 
 import { useInfoEffect } from "./hooks/useInfoEffect";
 import defaultTextTemplates from "@/defaultTemplates";
@@ -46,7 +53,7 @@ import { GlobalProp } from "@/store";
 
 export default defineComponent({
   name: "Editor",
-  components: { LText, ComponentsList, EditWrapper },
+  components: { LText, ComponentsList, EditWrapper, PropsTable },
   setup() {
     // // 初始化数据
     // const zero = ref(0);
@@ -80,6 +87,10 @@ export default defineComponent({
     const setActive = (id: string) => {
       store.commit("editor/setActive", id);
     };
+    const pageChange = (e: any) => {
+      console.log("page", e);
+      store.commit("updatePage", e);
+    };
 
     return {
       addItem,
@@ -87,6 +98,7 @@ export default defineComponent({
       components,
       defaultTextTemplates,
       currentElement,
+      pageChange,
     };
   },
 });
