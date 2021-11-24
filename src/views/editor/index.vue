@@ -29,7 +29,7 @@
           <props-table
             v-if="currentElement && currentElement.props"
             :props="currentElement.props"
-            @change="pageChange"
+            @change="handleChange"
           ></props-table>
         </a-layout-sider>
       </a-layout>
@@ -89,7 +89,12 @@ export default defineComponent({
     };
     const pageChange = (e: any) => {
       console.log("page", e);
-      store.commit("updatePage", e);
+      // store.commit("updatePage", e);
+    };
+
+    const handleChange = (e: any) => {
+      console.log("event", e);
+      store.commit("editor/updateComponent", e);
     };
 
     return {
@@ -99,6 +104,7 @@ export default defineComponent({
       defaultTextTemplates,
       currentElement,
       pageChange,
+      handleChange,
     };
   },
 });
