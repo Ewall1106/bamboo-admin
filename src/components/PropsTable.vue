@@ -36,7 +36,7 @@ import { computed, defineComponent, PropType, VNode } from "vue";
 import { reduce } from "lodash-es";
 import { mapPropsToForms } from "../propsMap";
 // import { AllComponentProps } from "lego-bricks";
-// import RenderVnode from "./RenderVnode";
+import RenderVnode from "./RenderVnode";
 // import ColorPicker from "./ColorPicker.vue";
 // import ImageProcesser from "./ImageProcesser.vue";
 // import ShadowPicker from "./ShadowPicker.vue";
@@ -63,7 +63,7 @@ export default defineComponent({
     },
   },
   components: {
-    // RenderVnode,
+    RenderVnode,
     // ColorPicker,
     // ImageProcesser,
     // ShadowPicker,

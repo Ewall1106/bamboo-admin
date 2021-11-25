@@ -45,8 +45,9 @@ import { defineComponent, computed, ref, reactive, PropType } from "vue";
 import LText from "@/components/LText.vue";
 import ComponentsList from "@/components/ComponentsList.vue";
 import EditWrapper from "@/components/EditWrapper.vue";
-import PropsTable from "@/components/PropsTable.vue";
+// import PropsTable from "@/components/PropsTable.vue";
 
+import PropsTable from "@/components/PropsTable";
 import { useInfoEffect } from "./hooks/useInfoEffect";
 import defaultTextTemplates from "@/defaultTemplates";
 import { GlobalProp } from "@/store";
