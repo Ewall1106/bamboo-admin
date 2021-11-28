@@ -18,7 +18,12 @@ export const testComponents: ComponentData[] = [
   {
     id: uuidv4(),
     name: "l-text",
-    props: { text: "hello", fontSize: "20px", color: "red", fontFamily: "red" },
+    props: {
+      text: "hello",
+      fontSize: "20px",
+      color: "#000000",
+      fontFamily: "red",
+    },
   },
   { id: uuidv4(), name: "l-text", props: { text: "hello2", fontSize: "10px" } },
 ];

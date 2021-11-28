@@ -37,7 +37,7 @@ import { reduce } from "lodash-es";
 import { mapPropsToForms } from "../propsMap";
 // import { AllComponentProps } from "lego-bricks";
 import RenderVnode from "./RenderVnode";
-// import ColorPicker from "./ColorPicker.vue";
+import ColorPicker from "./ColorPicker.vue";
 // import ImageProcesser from "./ImageProcesser.vue";
 // import ShadowPicker from "./ShadowPicker.vue";
 // import IconSwitch from "./IconSwitch.vue";
@@ -64,7 +64,7 @@ export default defineComponent({
   },
   components: {
     RenderVnode,
-    // ColorPicker,
+    ColorPicker,
     // ImageProcesser,
     // ShadowPicker,
     // IconSwitch,
